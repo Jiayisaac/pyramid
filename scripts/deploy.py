@@ -3,7 +3,7 @@ from scripts.library import getAccount
 from brownie.network.gas.strategies import GasNowStrategy
 from brownie.network import gas_price
 
-GAS_STRATEGY = config[Contract][Parameters][Gas_Strategy]
+GAS_STRATEGY = config[Gas_Strategy]
 
 def main():
     deploy_pyramid()
