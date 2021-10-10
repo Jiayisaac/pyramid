@@ -1,7 +1,9 @@
-from brownie import Pyramid, accounts, Wei
+from brownie import Pyramid, accounts, Wei, config
 from scripts.library import getAccount
 
-FEE_AMOUNT = Wei("0.05 ether")
+FEE_AMOUNT = Wei(config[Contract][Parameters][Fee_Amount])
+WAIT_TIME = config[Contract][Parameters][Wait_Time]
+
 
 def main():
     pyramid_subscribe()
@@ -23,6 +25,6 @@ def pyramid_subscribe():
         transaction = my_pyramid.subscribeToRandomAddress(txn_parameters)
     else:
         transaction = my_pyramid.subscribe(Referrer_address, txn_parameters)
-    print("Sent! Awaiting 3 confirmations...")
-    transaction.wait(3)
+    print(f"Sent! Awaiting {WAIT_TIME} confirmations...")
+    transaction.wait(WAIT_TIME)
     print("Confirmed!")
