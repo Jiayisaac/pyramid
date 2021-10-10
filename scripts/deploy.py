@@ -13,9 +13,5 @@ def deploy_pyramid():
     gas_price(GasNowStrategy(GAS_STRATEGY))
     print(f"Gas strategy is: {GAS_STRATEGY}")
     print("Deploying...")
-    if network.show_active() == "rinkeby":
-        my_pyramid = Pyramid.deploy({"from": account}, publish_source=True)
-    else:
-        my_pyramid = Pyramid.deploy({"from": account})
-
+    my_pyramid = Pyramid.deploy({"from": account}, publish_source=True)
     print(f"Contract deployed to: {my_pyramid}")
