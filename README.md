@@ -19,7 +19,7 @@ TO INTERACT WITH THIS SMART CONTRACT
 - Open a new terminal window and enter:  
     - brownie pm install Jiayisaac/pyramid@0.0.3
 
-- Edit the .env file to select the network you would like to deploy to {mainnet, rinkeby, kovan, goerli, ropsten, development, mainnet-fork etc}
+- Edit the brownie-config.yaml file to select the default network you would like to deploy to {mainnet, rinkeby, kovan, goerli, ropsten, development, mainnet-fork etc}
     - brownie run scripts/deploy.py
 
 - To interact with the contract do so over etherscan, or via
