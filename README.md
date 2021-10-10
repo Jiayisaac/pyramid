@@ -12,10 +12,10 @@ DEPENDENCIES
 
 TO INTERACT WITH THIS SMART CONTRACT
 
-- Install dependencies
-
-- Download this GitRepository
+- Install above dependencies
 
 - Open Folder in Visual Studio Code
 
-- Open a new terminal window and enter: brownie run scripts/subsribe.py
+- Open a new terminal window and enter: 
+    - brownie pm install 
+    - brownie run scripts/subsribe.py
