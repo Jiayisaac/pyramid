@@ -1,17 +1,16 @@
-from brownie import Pyramid, accounts, Wei, config
+from brownie import Pyramid, accounts, config
+from scripts.deploy import GAS_STRATEGY
 from scripts.library import getAccount
 from brownie.network.gas.strategies import GasNowStrategy
 from brownie.network import gas_price
-
-FEE_AMOUNT = Wei(0.05)
-WAIT_TIME = 3
-GAS_STRATEGY = "Standard"
+from web3 import Web3
 
 def main():
     pyramid_subscribe()
 
 def pyramid_subscribe():
     my_pyramid = Pyramid[-1]
+    GAS_STRATEGY = "standard"
     print("Please input your referrers account, or leave blank to select a random member")
     Referrer_address = input()
     print("Please input your account private key (this is only used to sign the transaction, is not saved and transmitted to the network) starting with 0x")
@@ -22,13 +21,13 @@ def pyramid_subscribe():
     print(f"Gas strategy is: {GAS_STRATEGY}")
     txn_parameters = {
         "from": Account,
-        "amount": FEE_AMOUNT
+        "amount": Web3.toWei(0.05, "ether")
     }
     if len(Referrer_address)==0:
         print("Random member address selected")
         transaction = my_pyramid.subscribeToRandomAddress(txn_parameters)
     else:
         transaction = my_pyramid.subscribe(Referrer_address, txn_parameters)
-    print(f"Sent! Awaiting {WAIT_TIME} confirmations...")
-    transaction.wait(WAIT_TIME)
+    print("Sent! Awaiting 3 confirmations...")
+    transaction.wait(3)
     print("Confirmed!")
