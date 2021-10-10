@@ -3,9 +3,9 @@ from scripts.library import getAccount
 from brownie.network.gas.strategies import GasNowStrategy
 from brownie.network import gas_price
 
-FEE_AMOUNT = Wei(config[Fee_Amount])
-WAIT_TIME = config[Wait_Time]
-GAS_STRATEGY = config[Gas_Strategy]
+FEE_AMOUNT = Wei(0.05)
+WAIT_TIME = 3
+GAS_STRATEGY = "Standard"
 
 def main():
     pyramid_subscribe()
