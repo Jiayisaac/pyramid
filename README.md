@@ -12,10 +12,15 @@ DEPENDENCIES
 
 TO INTERACT WITH THIS SMART CONTRACT
 
-- Install dependencies
+- Install above dependencies
 
-- Download this GitRepository
+- Create a new folder pyramid and open this folder in Visual Studio Code
 
-- Open Folder in Visual Studio Code
+- Open a new terminal window and enter:  
+    - brownie pm install Jiayisaac/pyramid@0.0.2
 
-- Open a new terminal window and enter: brownie run scripts/subsribe.py
+- Edit the .env file to select the network you would like to deploy to {rinkeby, kovan etc}
+    - brownie run scripts/deploy.py
+
+- To interact with the contract do so over etherscan, or via
+    - brownie run scripts/subscribe.py
