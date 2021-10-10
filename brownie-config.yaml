@@ -3,4 +3,4 @@ Fee_Amount: ${FEE_AMOUNT_ETH}
 Wait_Time: ${WAIT_TIME}
 Gas_Strategy: ${GAS_STRATEGY}
 networks:
-  default: kovan
+  default: rinkeby
